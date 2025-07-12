@@ -1,0 +1,133 @@
+<div class="contact-container">
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Get in Touch</h1>
+        <p class="hero-subtitle">We'd love to hear from you. Contact us for orders or inquiries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="contact-info-section">
+    <div class="container">
+      <div class="contact-info-grid">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Our Location</h3>
+          <div class="address">
+            <p>{{ address.line1 }}</p>
+            <p>{{ address.line2 }}</p>
+            <p>{{ address.city }}</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <h3>Phone Numbers</h3>
+          <div class="phone-numbers">
+            <a href="tel:{{ phone }}" class="phone-link" *ngFor="let phone of phoneNumbers">
+              <span>📞</span>
+              {{ phone }}
+            </a>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">🕒</div>
+          <h3>Business Hours</h3>
+          <div class="hours">
+            <p>Monday - Friday: 7:00 AM - 3:00 PM</p>
+            <p>Saturday: 8:00 AM - 2:00 PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="form-container">
+        <h2 class="form-title">Send us a Message</h2>
+        <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="contactForm.name"
+              required
+              class="form-input"
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="contactForm.email"
+              required
+              class="form-input"
+              placeholder="Enter your email address"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              [(ngModel)]="contactForm.phone"
+              class="form-input"
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="contactForm.message"
+              required
+              class="form-textarea"
+              rows="5"
+              placeholder="Tell us about your requirements or any questions you have..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="!contactFormRef.valid"
+            class="submit-button"
+          >
+            <span>Send Message</span>
+            <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Order Section -->
+  <section class="quick-order-section">
+    <div class="container">
+      <div class="quick-order-content">
+        <h2>Quick Order</h2>
+        <p>For immediate orders, call us directly:</p>
+        <div class="quick-order-phones">
+          <a href="tel:9952981694" class="quick-order-btn">📞 9952981694</a>
+          <a href="tel:9884884154" class="quick-order-btn">📞 9884884154</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

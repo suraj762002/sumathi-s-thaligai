@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <div class="logo">
+        <span class="logo-text">Sumathi's</span>
+        <span class="logo-subtext">Thaligai</span>
+      </div>
+    </div>
+    
+    <div class="navbar-menu" [class.active]="isMenuOpen">
+      <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
+      <a routerLink="/order" class="nav-link" routerLinkActive="active">Order Now</a>
+      <a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a>
+    </div>
+    
+    <div class="navbar-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
