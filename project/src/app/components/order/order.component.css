@@ -146,6 +146,36 @@
   box-shadow: 0 0 0 3px var(--primary-100);
 }
 
+.day-menu-preview {
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+  padding: var(--space-6);
+  background: var(--neutral-50);
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.day-menu-preview h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-4);
+  color: var(--primary-800);
+  font-family: 'Playfair Display', serif;
+}
+
+.day-menu-preview ul {
+  padding-left: var(--space-6);
+  list-style-type: disc;
+  color: var(--neutral-700);
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+
 /* Menu Selection */
 .menu-selection {
   background: white;

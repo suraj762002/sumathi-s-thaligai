@@ -14,6 +14,9 @@ import { PaymentService, OrderItem, BookingDetails } from '../../services/paymen
 export class OrderComponent implements OnInit {
   currentStep = 1;
   maxSteps = 3;
+  selectedDayName = '';
+selectedDayMenu: string[] = [];
+
 
   // Step 1: Date Selection
   selectedDate = '';
@@ -27,6 +30,15 @@ export class OrderComponent implements OnInit {
     { id: 'kootu-podi', name: 'Kootu Podi (250g)', price: 200, type: 'podi' as const },
     { id: 'rasam-podi', name: 'Rasam Podi (250g)', price: 200, type: 'podi' as const }
   ];
+
+  weeklyMenu = [
+  { day: 'Monday', items: ['Vathakuzhambu', 'Poriyal', 'Rasam'] },
+  { day: 'Tuesday', items: ['Sambar', 'Poriyal', 'Rasam', 'Kootu'] },
+  { day: 'Wednesday', items: ['Mor Kuzhambu', 'Poriyal', 'Rasam', 'Mango Pickle'] },
+  { day: 'Thursday', items: ['Vathakuzhambu', 'Kootu', 'Rasam'] },
+  { day: 'Friday', items: ['Sambar', 'Rasam', 'Poriyal', 'Variety Rice'] }
+];
+
 
   cartItems: OrderItem[] = [];
 
@@ -76,10 +88,19 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  // Date Selection
-  onDateChange() {
-    console.log('Selected date:', this.selectedDate);
-  }
+onDateChange(): void {
+  if (!this.selectedDate) return;
+
+  const date = new Date(this.selectedDate);
+  const dayIndex = date.getDay(); // 0 (Sunday) to 6 (Saturday)
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  this.selectedDayName = dayNames[dayIndex] || '';
+
+  const todayMenu = this.weeklyMenu?.find(menu => menu.day === this.selectedDayName);
+  this.selectedDayMenu = todayMenu?.items ?? [];
+}
+
 
   // Cart Management
   addToCart(item: any) {
